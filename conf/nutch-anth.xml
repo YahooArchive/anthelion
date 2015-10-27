@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- this config files contains all user configurable properties -->
+<configuration>
+
+<property>
+  <name>anth.wdc.outputPath</name>
+  <value></value>
+  <description> Where to store the extraction result (YOU CAN IGNORE THIS ONE).
+  </description>
+</property>
+<property>
+ <name>anth.wdc.evilNamespaces</name>
+  <value>http://vocab.sindice.net/any23#,http://www.w3.org/1999/xhtml/vocab#</value>
+  <description>Exclude namesspaces which cause title and css links to be included as triples.</description>
+</property>
+<property>
+ <name>anth.wdc.noEvilNamespaces</name>
+  <value>http://vocab.sindice.net/any23#hrecipe/</value>
+  <description>Allow namespaces which are subsets of evilNamespaces to be included.</description>
+</property>
+<property>
+  <name>anth.wdc.extractors.contain.RDFaExtractor</name>
+  <value>true</value>
+  <description>Toggle RDFaExtractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.RDFa11Extractor</name>
+  <value>false</value>
+  <description>Toggle RDFa11Extractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.MicrodataExtractor</name>
+  <value>true</value>
+  <description>Toggle MicrodataExtractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.GeoExtractor</name>
+  <value>false</value>
+  <description>Toggle GeoExtractor</description>
+</property>
+<property>
+  <name>anth.scoring.classifier.PropsFilePath</name>
+  <value>/Users/petar/baseline.properties</value>
+  <description>The path to the config file for the online classifier.
+  </description>
+</property>
+
+</configuration>

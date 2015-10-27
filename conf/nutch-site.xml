@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+  <name>http.agent.name</name>
+  <value>LDcrawl</value>
+  <description>HTTP 'User-Agent' request header. MUST NOT be empty - 
+  please set this to a single word uniquely related to your organization.
+
+  NOTE: You should also check other related properties:
+
+    http.robots.agents
+    http.agent.description
+    http.agent.url
+    http.agent.email
+    http.agent.version
+
+  and set their values appropriately.
+
+  </description>
+</property>
+
+<property>
+  <name>http.robots.agents</name>
+  <value></value>
+  <description>Any other agents, apart from 'http.agent.name', that the robots
+  parser would look for in robots.txt. Multiple agents can be provided using 
+  comma as a delimiter. eg. mybot,foo-spider,bar-crawler
+  
+  The ordering of agents does NOT matter and the robots parser would make 
+  decision based on the agent which matches first to the robots rules.  
+  Also, there is NO need to add a wildcard (ie. "*") to this string as the 
+  robots parser would smartly take care of a no-match situation. 
+    
+  If no value is specified, by default HTTP agent (ie. 'http.agent.name') 
+  would be used for user agent matching by the robots parser. 
+  </description>
+</property>
+<property>
+   <name>plugin.folders</name>
+   <value>/Users/petar/Documents/workspace/nutch-anth/build/plugins</value>
+ </property>
+<property>
+  <name>plugin.includes</name>
+  <value>protocol-http|urlfilter-regex|parse-(html|tika)|index-(basic|anchor)|
+          urlnormalizer-(pass|regex|basic)|parse-anth</value>
+  <description>Regular expression naming plugin directory names to
+  include.  Any plugin not matching this expression is excluded.
+  In any case you need at least include the nutch-extensionpoints plugin. By
+  default Nutch includes crawling just HTML and plain text via HTTP,
+  and basic indexing and search plugins. In order to use HTTPS please enable 
+  protocol-httpclient, but be aware of possible intermittent problems with the 
+  underlying commons-httpclient library. Set parsefilter-naivebayes for classification based focused crawler.
+  </description>
+</property>
+
+<!-- <property>
+<name>generate.min.score</name>
+<valeue>0.5</valeue>
+</property> -->
+
+<!-- ****ANTHELION CONFIGURATIONS***
+this section contains all user configurable properties -->
+
+
+<property>
+  <name>anth.wdc.outputPath</name>
+  <value></value>
+  <description> Where to store the extraction result (YOU CAN IGNORE THIS ONE).
+  </description>
+</property>
+<property>
+ <name>anth.wdc.evilNamespaces</name>
+  <value>http://vocab.sindice.net/any23#,http://www.w3.org/1999/xhtml/vocab#</value>
+  <description>Exclude namesspaces which cause title and css links to be included as triples.</description>
+</property>
+<property>
+ <name>anth.wdc.noEvilNamespaces</name>
+  <value>http://vocab.sindice.net/any23#hrecipe/</value>
+  <description>Allow namespaces which are subsets of evilNamespaces to be included.</description>
+</property>
+<property>
+  <name>anth.wdc.extractors.contain.RDFaExtractor</name>
+  <value>true</value>
+  <description>Toggle RDFaExtractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.RDFa11Extractor</name>
+  <value>false</value>
+  <description>Toggle RDFa11Extractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.MicrodataExtractor</name>
+  <value>true</value>
+  <description>Toggle MicrodataExtractor</description>
+</property>
+<property>
+ <name>anth.wdc.extractors.contain.GeoExtractor</name>
+  <value>false</value>
+  <description>Toggle GeoExtractor</description>
+</property>
+<property>
+  <name>anth.scoring.classifier.PropsFilePath</name>
+  <value>/Users/petar/baseline.properties</value>
+  <description>The path to the config file for the online classifier.
+  </description>
+</property>
+
+
+</configuration>
