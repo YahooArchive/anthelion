@@ -31,7 +31,7 @@ To perform the focused crawiling the plugin implements three extensions:
 An overview of the complete crawling process using the Anthelion plugin is given in the following figure.
 
 <p align="center">
-  <img src="https://git.corp.yahoo.com/petar/nutch-anth/blob/master/documentation/architecture.png?raw=true" alt="Architecture"/>
+  <img src="https://github.com/yahoo/anthelion/blob/master/documentation/architecture.png?raw=true" alt="Architecture"/>
 </p>
 
 
@@ -161,7 +161,7 @@ So far, we have evaluated using three different seeds sample, and several differ
 
 The pairwise comparison is given in the following chart:
 <p align="center">
-  <img src="https://git.corp.yahoo.com/petar/nutch-anth/blob/master/documentation/results_chart.png?raw=true" alt="Architecture"/>
+  <img src="https://github.com/yahoo/anthelion/blob/master/documentation/results_chart.png?raw=true" alt="Architecture"/>
 </p>
 
 ### 3rd Party Libraries
