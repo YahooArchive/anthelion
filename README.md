@@ -20,11 +20,11 @@ The plugin uses online learning approach to predict data-rich web pages based on
 
 ### Plugin Overview
 
-To perform the focused crawiling the plugin implements three extensions:
+To perform the focused crawling the plugin implements three extensions:
 
-1. **AnthelionScoringFilter** (implements the ScoringFilter interface): wraps arround the Anthelion online classifier to classify newly discovered outlinks, as relevant or not. This extension gives score to each outlink, which is then used in the Generate stage, i.e., the URLs for the next fetch cycle are selected based on the score. This extension also pushes feedback to the classifier for the already parsed web pages. The online classifier can be configured and tuned (see [Usage and Development] (#usage and development)).
+1. **AnthelionScoringFilter** (implements the ScoringFilter interface): wraps around the Anthelion online classifier to classify newly discovered outlinks, as relevant or not. This extension gives score to each outlink, which is then used in the Generate stage, i.e., the URLs for the next fetch cycle are selected based on the score. This extension also pushes feedback to the classifier for the already parsed web pages. The online classifier can be configured and tuned (see [Usage and Development] (#usage and development)).
 
-2. **WdcParser** (implements the Parser interface): This extension parses the web page content and tries to extract semantic data. The parser is adaptation of an already existing nutch parser plugin implemented in [2]. The parser is based on the [any23 library](https://any23.apache.org/) and is able to extract Microdata, Microformats and RDFa annotation from HTML. The extracted triples are stored in the *Content* field.
+2. **WdcParser** (implements the Parser interface): This extension parses the web page content and tries to extract semantic data. The parser is adaptation of an already existing Nutch parser plugin implemented in [2]. The parser is based on the [any23 library](https://any23.apache.org/) and is able to extract Microdata, Microformats and RDFa annotation from HTML. The extracted triples are stored in the *Content* field.
 
 3. **TripleExtractor** (implements the IndexingFilter interface): This extension stores new fields to the index that can be later used for querying.
 
@@ -39,7 +39,7 @@ An overview of the complete crawling process using the Anthelion plugin is given
 
 As mentioned in the beginning of the document this project contains the complete Nutch 1.6 code, including the plugin. If you download the complete project, there is no need for any changes and settings. If you want to download only the plugin, please download only the nutch-anth.zip from the root of the folder and go to step 2 of the configuration. If you want to contribute to the plugin and/or want to use the sources with another version of Nutch, please follow the following instructions:
 
-1. Download and copy the /src/plugin/parse-anth folder in your nutch's plugins directory.
+1. Download and copy the /src/plugin/parse-anth folder in your Nutch's plugins directory.
 
 2. Enable the plugin in conf/nutch-site.xml by adding *parse-anth* in the *plugin.includes* property.
 
@@ -47,7 +47,7 @@ As mentioned in the beginning of the document this project contains the complete
 
 	3.1. Download the baseline.properties file and set the property *anth.scoring.classifier.PropsFilePath* conf/nutch-site.xml to point to the file. This file contains all configurations for the online classifier.
 
-4. In order for ant to compile and deploy the plugin you need to edit the src/plugin/build.xml, by adding the following line in the *deploy* targrt:
+4. In order for ant to compile and deploy the plugin you need to edit the src/plugin/build.xml, by adding the following line in the *deploy* target:
 	```xml
 	<ant dir="parse-anth" target="deploy"/>
 	```
@@ -105,10 +105,10 @@ So far, we have evaluated using three different seeds sample, and several differ
   <td height=15 class=xl66 style='height:15.0pt;border-top:none;border-left:
   none'>#total pages</td>
   <td class=xl66 style='border-top:none;border-left:none'>#sem pages</td>
-  <td class=xl67 style='border-top:none;border-left:none'>precission</td>
+  <td class=xl67 style='border-top:none;border-left:none'>precision</td>
   <td class=xl66 style='border-top:none;border-left:none'>#total pages</td>
   <td class=xl66 style='border-top:none;border-left:none'>#sem pages</td>
-  <td class=xl67 style='border-top:none;border-left:none'>precission</td>
+  <td class=xl67 style='border-top:none;border-left:none'>precision</td>
  </tr>
  <tr height=15 style='height:15.0pt'>
   <td height=15 class=xl66 align=right style='height:15.0pt;border-top:none'>2</td>
@@ -172,12 +172,12 @@ Here we summarize the tools used, their purpose, and the licenses under which th
 	* http://nutch.apache.org/
 
 2. Apache Any23 1.2 (Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0)
-	* Used for extraction of semantic anntoation from HTML.
+	* Used for extraction of semantic annotation from HTML.
 	* https://any23.apache.org/
 	* More information about the 3rd party dependencies used in the any23 library can be found [here](https://any23.apache.org/)  
 
 3. The classes com.yahoo.research.parsing.WdcParser and com.yahoo.research.parsing.FilterableTripleHandler are modified version of exiting Nutch plugin (Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0)
-	* Used for parssing the crawled web pages
+	* Used for parsing the crawled web pages
 	* Hellman et al. [2]; https://www.assembla.com/spaces/commondata/subversion/source/HEAD/extractorNutch
 
 4. For the libraries and tools used in Anthelion, please check the Anthelion [README file] (https://git.corp.yahoo.com/semsearch/nutch-anth/blob/master/anthelion/README.md). 
