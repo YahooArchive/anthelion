@@ -1,6 +1,6 @@
 # nutch-anth
 Anthelion is a Nutch plugin for focused crawling of semantic data.
-The project is an open-source project released under Apache License 2.0.
+The project is an open-source project released under the Apache License 2.0.
 
 Note: This project contains the complete Nutch 1.6 distribution. The plugin itself can be found in /src/plugin/parse-anth
 
@@ -16,13 +16,13 @@ Table of Contents
 
 Nutch-Anthelion Plugin
 ---------
-The plugin uses online learning approach to predict data-rich web pages based on the context of the page as well as using feedback from the extraction of metadata from previously seen pages [1].
+The plugin uses an online learning approach to predict data-rich web pages based on the context of the page as well as using feedback from the extraction of metadata from previously seen pages [1].
 
 ### Plugin Overview
 
 To perform the focused crawling the plugin implements three extensions:
 
-1. **AnthelionScoringFilter** (implements the ScoringFilter interface): wraps around the Anthelion online classifier to classify newly discovered outlinks, as relevant or not. This extension gives score to each outlink, which is then used in the Generate stage, i.e., the URLs for the next fetch cycle are selected based on the score. This extension also pushes feedback to the classifier for the already parsed web pages. The online classifier can be configured and tuned (see [Usage and Development] (#usage and development)).
+1. **AnthelionScoringFilter** (implements the ScoringFilter interface): wraps around the Anthelion online classifier to classify newly discovered outlinks, as relevant or not. This extension gives score to each outlink, which is then used in the Generate stage, i.e., the URLs for the next fetch cycle are selected based on the score. This extension also pushes feedback to the classifier for the already parsed web pages. The online classifier can be configured and tuned (see [Usage and Development](#usage and development)).
 
 2. **WdcParser** (implements the Parser interface): This extension parses the web page content and tries to extract semantic data. The parser is adaptation of an already existing Nutch parser plugin implemented in [2]. The parser is based on the [any23 library](https://any23.apache.org/) and is able to extract Microdata, Microformats and RDFa annotation from HTML. The extracted triples are stored in the *Content* field.
 
@@ -31,7 +31,7 @@ To perform the focused crawling the plugin implements three extensions:
 An overview of the complete crawling process using the Anthelion plugin is given in the following figure.
 
 <p align="center">
-  <img src="https://github.com/yahoo/anthelion/blob/master/documentation/architecture.png?raw=true" alt="Architecture"/>
+  <img src="https://github.com/yahoo/anthelion/blob/master/documentation/architecture.png?raw=true" alt="Anthelion Architecture"/>
 </p>
 
 
@@ -39,7 +39,7 @@ An overview of the complete crawling process using the Anthelion plugin is given
 
 As mentioned in the beginning of the document this project contains the complete Nutch 1.6 code, including the plugin. If you download the complete project, there is no need for any changes and settings. If you want to download only the plugin, please download only the nutch-anth.zip from the root of the folder and go to step 2 of the configuration. If you want to contribute to the plugin and/or want to use the sources with another version of Nutch, please follow the following instructions:
 
-1. Download and copy the /src/plugin/parse-anth folder in your Nutch's plugins directory.
+1. Download and copy the /src/plugin/parse-anth folder into your Nutch's plugins directory.
 
 2. Enable the plugin in conf/nutch-site.xml by adding *parse-anth* in the *plugin.includes* property.
 
@@ -66,7 +66,7 @@ As mentioned in the beginning of the document this project contains the complete
 	```xml
 	<alias name="parse-anth" extension-id="com.yahoo.research.parsing.WdcParser" />
 	```
-7. Copy the *lib* folder to the root of the Nutch distribution.
+7. Copy the *lib* folder into the root of the Nutch distribution.
 
 8. Run `mvn package` inside the *anthelion* folder. This will create the jar "Anthelion-1.0.0-jar-with-dependencies.jar". Copy the jar to src/plugin/parse-anth/lib.
 
@@ -176,7 +176,7 @@ Here we summarize the tools used, their purpose, and the licenses under which th
 	* https://any23.apache.org/
 	* More information about the 3rd party dependencies used in the any23 library can be found [here](https://any23.apache.org/)  
 
-3. The classes com.yahoo.research.parsing.WdcParser and com.yahoo.research.parsing.FilterableTripleHandler are modified version of exiting Nutch plugin (Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0)
+3. The classes com.yahoo.research.parsing.WdcParser and com.yahoo.research.parsing.FilterableTripleHandler are modified versions of existing Nutch plugins (Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0)
 	* Used for parsing the crawled web pages
 	* Hellman et al. [2]; https://www.assembla.com/spaces/commondata/subversion/source/HEAD/extractorNutch
 
